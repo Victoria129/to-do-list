@@ -18,13 +18,13 @@ let toDoList = [
     }
 ]
 
-const createToDoItemHtml = () => {
+const createToDoItemHtml = ({ description }) => {
     const div = document.createElement("div");
     div.className = "to-do-item";
     div.innerHTML = `
     <div class="to-do-detail">
     <input type="checkbox">
-    <h3 class="to-do-dsc">Go swimming</h3>
+    <h3 class="to-do-dsc">${description}</h3>
 </div>
 <div>
     <button class="edit-btn"><i class="fa-regular fa-pen-to-square"></i></button>
@@ -34,4 +34,10 @@ const createToDoItemHtml = () => {
     return div;
 }
 
-
+const showToDoItems = () => {
+    toDoList.forEach((item) => {
+    document.querySelector(".to-do-list").append(createToDoItemHtml(item));
+    })
+    
+}
+showToDoItems();
