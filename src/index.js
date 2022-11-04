@@ -4,12 +4,12 @@ const toDoList = [
   {
     description: 'Go swimming',
     completed: false,
-    index: 1,
+    index: 2,
   },
   {
     description: 'Visit dentist',
     completed: false,
-    index: 2,
+    index: 1,
   },
   {
     description: 'Plan party',
@@ -35,6 +35,7 @@ const createToDoItemHtml = ({ description }) => {
 };
 
 const showToDoItems = () => {
+  toDoList.sort((a, b) => a.index - b.index);
   toDoList.forEach((item) => {
     document.querySelector('.to-do-list').append(createToDoItemHtml(item));
   });
