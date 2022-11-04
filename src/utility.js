@@ -22,6 +22,19 @@ export default class Utility {
         })
     } 
 
+    static updateTask = (newDsc, id) => {
+        let toDoList = this.getLocalStorageList();
+        let taskToUpdate = toDoList[id];
+
+        toDoList.forEach((item) => {
+            if(item === taskToUpdate) {
+                taskToUpdate.description = newDsc;
+            }
+        })
+        this.setLocalStorageList(toDoList);
+        this.showToDoItems();
+    }
+
     static deleteItem = (id) => {
         let todoList = this.getLocalStorageList();
         let itemToDel = todoList[id];
@@ -40,6 +53,26 @@ export default class Utility {
         }))
     }
 
+    static setupEdit = (id) => {
+        let todoList = this.getLocalStorageList();
+        let itemToEdit = todoList[id];
+
+        document.getElementById("to-do-input").style.display = "none";
+        const editInput = document.querySelector("#edit-input");
+        editInput.value = itemToEdit.description;
+        editInput.style.display = "block";
+        editInput.setAttribute("id", id);
+        editInput.focus();
+    }
+
+    static addEditEvent = () => {
+        document.querySelectorAll(".edit-btn").forEach((button) => button.addEventListener('click', (e) => {
+            e.preventDefault();
+            let id = button.id - 1;
+            this.setupEdit(id);
+        }))
+    }
+
     static createToDoItemHtml = ({ description, index }) => {
         const div = document.createElement('div');
         div.className = 'to-do-item';
@@ -49,7 +82,7 @@ export default class Utility {
           <h3 class="to-do-dsc">${description}</h3>
       </div>
       <div>
-          <button class="edit-btn"><i class="fa-regular fa-pen-to-square"></i></button>
+          <button class="edit-btn" id="${index}"><i class="fa-regular fa-pen-to-square"></i></button>
           <button class="delete-btn" id="${index}"><i class="fa-solid fa-trash-can"></i></button>
       </div>
       `;
@@ -65,6 +98,7 @@ export default class Utility {
         });
 
         this.addRemoveEvent();
+        this.addEditEvent();
       };
       
 
