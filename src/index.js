@@ -1,22 +1,11 @@
 import './index.css';
+import Utility from "./utility.js";
 
-const toDoList = [
-  {
-    description: 'Go swimming',
-    completed: false,
-    index: 2,
-  },
-  {
-    description: 'Visit dentist',
-    completed: false,
-    index: 1,
-  },
-  {
-    description: 'Plan party',
-    completed: false,
-    index: 3,
-  },
-];
+const inputForm = document.getElementById("to-do-form");
+const input = document.getElementById("to-do-input");
+
+
+
 
 const createToDoItemHtml = ({ description }) => {
   const div = document.createElement('div');
