@@ -16,10 +16,17 @@ export default class Utility {
         return todoList;
     }
 
+    static reassignIndex = (todoList) => {
+        todoList.forEach((item, i) => {
+            item.index = i + 1;
+        })
+    } 
+
     static deleteItem = (id) => {
         let todoList = this.getLocalStorageList();
         let itemToDel = todoList[id];
         todoList = todoList.filter((item) => item !== itemToDel);
+        this.reassignIndex(todoList);
         this.setLocalStorageList(todoList);
     }
 
