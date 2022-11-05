@@ -72,13 +72,13 @@ export default class Utility {
       }));
     }
 
-    static createToDoItemHtml = ({ description, index }) => {
+    static createToDoItemHtml = ({ description, index }, currentStatus, completedTask) => {
       const div = document.createElement('div');
       div.className = 'to-do-item';
       div.innerHTML = `
           <div class="to-do-detail">
-          <input type="checkbox">
-          <h3 class="to-do-dsc">${description}</h3>
+          <input type="checkbox" class="checkbox" id="${index}" ${currentStatus}>
+          <h3 class="to-do-dsc ${completedTask}">${description}</h3>
       </div>
       <div>
           <button class="edit-btn" id="${index}"><i class="fa-regular fa-pen-to-square"></i></button>
@@ -93,11 +93,25 @@ export default class Utility {
         document.querySelector('.to-do-list').innerHTML = '';
         toDoList.sort((a, b) => a.index - b.index);
         toDoList.forEach((item) => {
-          document.querySelector('.to-do-list').append(this.createToDoItemHtml(item));
+          let currentStatus;
+          let completedTask;
+
+          if (item.completed === true) {
+            currentStatus = 'checked';
+            completedTask = 'is-completed';
+          } else {
+            currentStatus = '';
+            completedTask = '';
+          }
+
+          document.querySelector('.to-do-list').append(this.createToDoItemHtml(item, currentStatus, completedTask));
         });
 
         this.addRemoveEvent();
         this.addEditEvent();
+
+        const event = new Event('taskListUpdated');
+        document.dispatchEvent(event);
       };
 
     static addTodoTask = (description) => {

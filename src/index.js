@@ -1,5 +1,6 @@
 import './index.css';
 import Utility from './utility.js';
+import Interactive from './interactive.js';
 
 const inputForm = document.getElementById('to-do-form');
 const input = document.getElementById('to-do-input');
@@ -21,4 +22,11 @@ editInputForm.addEventListener('submit', (e) => {
   document.getElementById('to-do-input').style.display = 'block';
 });
 
-Utility.showToDoItems();
+document.querySelector('.clear-all').addEventListener('click', Interactive.deleteAllCompletedTasks);
+
+window.addEventListener('DOMContentLoaded', () => {
+  document.addEventListener('taskListUpdated', () => {
+    Interactive.addCheckboxEvent();
+  }, false);
+  Utility.showToDoItems();
+});
