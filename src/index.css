@@ -62,9 +62,16 @@ p.clear-all {
 }
 
 .add-item {
-  width: 80%;
+  width: 45%;
   height: 2rem;
   border: none;
+}
+
+.edit-item {
+  width: 45%;
+  height: 2rem;
+  border: none;
+  display: none;
 }
 
 .to-do-detail {
