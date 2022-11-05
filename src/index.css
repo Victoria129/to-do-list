@@ -83,6 +83,12 @@ p.clear-all {
   margin-left: 1.5rem;
 }
 
+.is-completed {
+    text-decoration: line-through;
+    opacity: 0.8;
+    color: gray;
+}
+
 i:hover {
   opacity: 1;
   color: #000;
