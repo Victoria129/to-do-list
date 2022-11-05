@@ -1,5 +1,4 @@
 import Todo from './todo.js';
-import Interactive from './interactive.js';
 
 export default class Utility {
     static setLocalStorageList = (todo) => {
@@ -97,20 +96,22 @@ export default class Utility {
           let currentStatus;
           let completedTask;
 
-            if(item.completed === true) {
-                currentStatus = "checked";
-                completedTask = "is-completed";
-            } else {
-                currentStatus = "";
-                completedTask = "";
-            }
+          if (item.completed === true) {
+            currentStatus = 'checked';
+            completedTask = 'is-completed';
+          } else {
+            currentStatus = '';
+            completedTask = '';
+          }
 
           document.querySelector('.to-do-list').append(this.createToDoItemHtml(item, currentStatus, completedTask));
         });
 
         this.addRemoveEvent();
         this.addEditEvent();
-        Interactive.addCheckboxEvent();
+
+        const event = new Event('taskListUpdated');
+        document.dispatchEvent(event);
       };
 
     static addTodoTask = (description) => {

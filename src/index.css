@@ -84,9 +84,9 @@ p.clear-all {
 }
 
 .is-completed {
-    text-decoration: line-through;
-    opacity: 0.8;
-    color: gray;
+  text-decoration: line-through;
+  opacity: 0.8;
+  color: gray;
 }
 
 i:hover {
