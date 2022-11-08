@@ -3,7 +3,7 @@
 In this project, I will build a basic website that allows users to add/remove books from a list. we will achieve that by using ES6. 
 I will also need to dynamically modify the DOM and add or remove events.
 
-## [LIVE DEMO](https://victoria129.github.io/to-do-list/)
+## [LIVE DEMO](https://victoria129.github.io/to-do-list/dist)
 
 
 ## Built With
