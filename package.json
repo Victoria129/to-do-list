@@ -4,9 +4,16 @@
   "description": "",
   "private": true,
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1",
+    "test": "jest --coverage --watch",
     "build": "webpack",
     "start": "webpack serve --open"
+  },
+  "jest": {
+    "resetMocks": false,
+    "setupFiles": [
+      "jest-localstorage-mock"
+    ],
+    "testEnvironment": "jsdom"
   },
   "repository": {
     "type": "git",
@@ -20,6 +27,7 @@
   },
   "homepage": "https://github.com/Victoria129/to-do-list#readme",
   "devDependencies": {
+    "@babel/plugin-transform-modules-commonjs": "^7.19.6",
     "babel-eslint": "^10.1.0",
     "css-loader": "^6.7.1",
     "eslint": "^7.32.0",
@@ -27,6 +35,8 @@
     "eslint-plugin-import": "^2.25.3",
     "hint": "^6.1.9",
     "html-webpack-plugin": "^5.5.0",
+    "jest": "^29.3.1",
+    "jest-environment-jsdom": "^29.3.1",
     "style-loader": "^3.3.1",
     "stylelint": "^13.13.1",
     "stylelint-config-standard": "^21.0.0",
@@ -35,5 +45,8 @@
     "webpack": "^5.74.0",
     "webpack-cli": "^4.10.0",
     "webpack-dev-server": "^4.11.1"
+  },
+  "dependencies": {
+    "jest-localstorage-mock": "^2.4.22"
   }
 }
