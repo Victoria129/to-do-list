@@ -7,9 +7,9 @@ I will also need to dynamically modify the DOM and add or remove events.
 
 
 ## Workflow screenshots
-![screenshot](./assets/to-do-list.PNG)
-![screenshot](./assets/to-do-list-edit.PNG)
-![screenshot](./assets/to-do-list-completed.PNG)
+![screenshot](./src/assets/to-do-list.PNG)
+![screenshot](./src/assets/to-do-list-edit.PNG)
+![screenshot](./src/assets/to-do-list-completed.PNG)
 
 ## Built With
 
