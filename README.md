@@ -6,10 +6,10 @@ I will also need to dynamically modify the DOM and add or remove events.
 ## [LIVE DEMO](https://victoria129.github.io/to-do-list/dist)
 
 
-# WORKFLOW SCREENSHOTS
-![screenshot](./assets/to-do-list.PNG)
-![screenshot](./assets/to-do-list-edit.PNG
-![screenshot](./assets/to-do-list-completed.PNG)
+## Workflow screenshots
+![screenshot](./src/assets/to-do-list.PNG)
+![screenshot](./src/assets/to-do-list-edit.PNG)
+![screenshot](./src/assets/to-do-list-completed.PNG)
 
 ## Built With
 
